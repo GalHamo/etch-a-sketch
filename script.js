@@ -21,9 +21,17 @@ for (let xAxis = 0; xAxis < NUM_OF_DIVS; xAxis++){
     for (let yAxis = 0; yAxis < NUM_OF_DIVS; yAxis++){
         console.log(yAxis, 'Y')
         const chiledDiv = document.createElement('div')
+        chiledDiv.classList.add('green-box')
         chiledDiv.style.width = '100%'
         chiledDiv.style.height = '100%'
         chiledDiv.style.border = '1px solid black'
+
+        chiledDiv.addEventListener('mouseover', (selfChiled) => {
+            if (chiledDiv.style.background != 'green'){
+                chiledDiv.style.background = 'green'
+            }
+            chiledDiv.style.background = 'white'
+        })
         rowContainer.appendChild(chiledDiv)
     }
         
