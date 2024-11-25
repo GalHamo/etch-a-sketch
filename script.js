@@ -1,24 +1,30 @@
 const NUM_OF_DIVS = 16
+document.body.style.margin = '0'
 
 const gridContainer = document.createElement('div')
 gridContainer.style.width = '100vw'
 gridContainer.style.height = '100vh'
 gridContainer.style.border = '1em solid red'
-
-document.body.style.margin = '0'
+gridContainer.style.display = 'flex'
+gridContainer.style.flexDirection = 'column'
 
 document.body.appendChild(gridContainer)
 
-const chiledDiv = document.createElement('div')
-chiledDiv.style.width = 'calc(100vw / 16)'
-chiledDiv.style.height = 'calc(100vh / 16)'
-chiledDiv.style.border = '5px solid green'
-
-
 for (let xAxis = 0; xAxis < NUM_OF_DIVS; xAxis++){
     console.log(xAxis, 'X')
-    document.body.appendChild(chiledDiv)
-    for (let yAxis = 0; yAxis < NUM_OF_DIVS; yAxis++)
+    const rowContainer = document.createElement('div')
+    rowContainer.style.width = '100%'
+    rowContainer.style.height = 'calc(100% / 16)'
+    rowContainer.style.border = '1px solid black'
+    rowContainer.style.display = 'flex'
+    gridContainer.appendChild(rowContainer)
+    for (let yAxis = 0; yAxis < NUM_OF_DIVS; yAxis++){
         console.log(yAxis, 'Y')
-        gridContainer.appendChild(chiledDiv)
+        const chiledDiv = document.createElement('div')
+        chiledDiv.style.width = '100%'
+        chiledDiv.style.height = '100%'
+        chiledDiv.style.border = '1px solid black'
+        rowContainer.appendChild(chiledDiv)
+    }
+        
 }
