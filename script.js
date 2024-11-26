@@ -26,13 +26,18 @@ for (let xAxis = 0; xAxis < NUM_OF_DIVS; xAxis++){
         chiledDiv.style.height = '100%'
         chiledDiv.style.border = '1px solid black'
 
-        chiledDiv.addEventListener('mouseover', (selfChiled) => {
-            if (chiledDiv.style.background != 'green'){
-                chiledDiv.style.background = 'green'
-            }
-            chiledDiv.style.background = 'white'
-        })
+        
         rowContainer.appendChild(chiledDiv)
+        chiledDiv.addEventListener('mouseover', (selfChiled) => {
+            if (!chiledDiv.classList.contains('green-bg')){
+                chiledDiv.classList.add('green-bg')
+            } else {
+                chiledDiv.classList.remove('green-bg')
+                chiledDiv.classList.add('white-bg')
+            }
+            
+        })
     }
         
 }
+
